@@ -15,15 +15,15 @@ export default {
     // remove #text property
     const data = []
     fileData.forEach(item => {
-      const threeItems = {}
+      const treeItems = {}
       Object.entries(item).forEach(([key, value]) => {
-        threeItems[key] = value['#text']
+        treeItems[key] = value['#text']
       })
-      data.push(threeItems)
+      data.push(treeItems)
     })
     
-    // group by three
-    const threes = ref(_.chain(data)
+    // group by tree
+    const trees = ref(_.chain(data)
       .groupBy('nomesistematico')
       .map((value, key) => {
         return ({
@@ -45,7 +45,7 @@ export default {
             distrito: value[0].distrito,
             freguesia: value[0].freguesia,
             dcnf: value[0].dcnf,
-            threes: value,
+            trees: value,
           })
         })
         .sortBy('concelho')
@@ -53,7 +53,7 @@ export default {
 
     return {
       data,
-      threes,
+      trees,
       locations,
     }
   },

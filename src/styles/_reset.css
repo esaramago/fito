@@ -1,0 +1,18 @@
+﻿html {
+    font-size: 62.5%;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}

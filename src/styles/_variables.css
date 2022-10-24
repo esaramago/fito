@@ -1,0 +1,4 @@
+﻿:root {
+    --gap: 3.2rem;
+    --half-gap: calc(var(--gap) / 2)
+}

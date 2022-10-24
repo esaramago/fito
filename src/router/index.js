@@ -5,8 +5,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'threes',
-      component: () => import('./views/Threes/Threes.vue')
+      name: 'trees',
+      component: () => import('./views/Trees/Trees.vue')
     }
   ]
 })

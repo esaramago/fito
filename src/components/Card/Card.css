@@ -1,5 +1,22 @@
 ﻿.card {
-    padding: 2rem;
+    display: grid;
+    grid-template-columns: minmax(10rem, 20rem) minmax(20rem, 30rem) 1fr;
     background-color: #FFF;
     border-radius: 2rem;
+}
+.card__img {
+    overflow: hidden;
+}
+.card__img > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.card__table,
+.card__titles {
+    padding: var(--half-gap);
+}
+.card__titles,
+.card__img {
+    max-height: 40rem;
 }

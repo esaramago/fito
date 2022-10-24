@@ -1,9 +1,10 @@
 <template>
   <Stack>
     <Card
-      v-for="three in threes" :key="three.code"
-      :title="three.nomesistematico"
-      :sub-title="three.nomecomum"
+      v-for="tree in trees" :key="tree.code"
+      :title="tree.nomesistematico"
+      :sub-title="tree.nomecomum"
+      :code="tree.code"
     >
       <table>
         <thead>
@@ -14,7 +15,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="location in three.locations">
+          <tr v-for="location in tree.locations">
             <td>{{location.concelho}}</td>
             <td>{{location.freguesia}}</td>
             <td>
@@ -26,4 +27,4 @@
     </Card>
   </Stack>
 </template>
-<script src="./Threes"></script>
+<script src="./Trees"></script>
