@@ -1,0 +1,3 @@
+﻿.c-stack > * + * {
+    margin-top: var(--half-gap);
+}
