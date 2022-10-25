@@ -12,28 +12,29 @@
     direction: ltr;
     color: #333;
 }
-a.icon {
+.icon--clickable {
     position: relative;
     padding: .4rem;
     margin: -0.4rem;
     text-decoration: none;
     color: #333;
+    cursor: pointer;
     transition: color .3s;
 }
 
-a.icon > span {
+.icon--clickable > span {
     position: relative;
     z-index: 1;
 }
 
-a.icon:active {
+.icon--clickable:active {
     color: #EEE;
 }
-a.icon:hover {
+.icon--clickable:hover {
     color: var(--color-light);
 }
 
-a.icon::before {
+.icon--clickable::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -46,14 +47,14 @@ a.icon::before {
     opacity: 0;
     transition: opacity .3s, width .3s, height .3s, left .3s, top .3s;
 }
-a.icon:visited::before,
-a.icon:hover::before {
+.icon--clickable:visited::before,
+.icon--clickable:hover::before {
     top: 0%;
     left: 0%;
     width: 3.2rem;
     height: 3.2rem;
     opacity: 1;
 }
-a.icon:active::before {
+.icon--clickable:active::before {
     background-color: var(--color-dark);
 }

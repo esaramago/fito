@@ -1,0 +1,8 @@
+﻿.code-column {
+    width: 10rem;
+}
+@media (max-width: 900px) {
+    .code-column {
+        width: 8rem;
+    }
+}

@@ -11,7 +11,7 @@
           <tr>
             <th>Concelho</th>
             <th>Freguesia</th>
-            <th width="100">Código</th>
+            <th class="code-column">Código</th>
             <th width="40"></th>
             <th width="40"></th>
           </tr>
@@ -22,7 +22,7 @@
             <td>{{location.freguesia}}</td>
             <td>
               <template v-if="location.codes.length === 1">{{location.codigo}}</template>
-              <button v-else type="button" @click="viewCodes(location.codes)">Ver todos</button>
+              <Icon v-else @click="viewCodes(location.codes)" icon="view_list" title="Ver todos"></Icon>
             </td>
             <td>
               <Icon
@@ -46,4 +46,5 @@
     </Card>
   </Stack>
 </template>
-<script src="./Trees"></script>
+<style src="./Trees.css" scoped></style>
+<script src="./Trees.js"></script>
