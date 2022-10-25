@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "fitossanidadeflorestal",
-    "public": "public",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
