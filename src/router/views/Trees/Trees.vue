@@ -11,7 +11,7 @@
           <tr>
             <th>Concelho</th>
             <th>Freguesia</th>
-            <th>Códigos</th>
+            <th width="100">Código</th>
             <th width="40"></th>
             <th width="40"></th>
           </tr>
@@ -22,7 +22,7 @@
             <td>{{location.freguesia}}</td>
             <td>
               <template v-if="location.codes.length === 1">{{location.codigo}}</template>
-              <button v-else type="button" @click="viewCodes(location.codes)">Códigos</button>
+              <button v-else type="button" @click="viewCodes(location.codes)">Ver todos</button>
             </td>
             <td>
               <Icon

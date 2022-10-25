@@ -4,3 +4,7 @@
     font-family: 'Varela', serif;
     font-size: 1.6rem;
 }
+.wrapper {
+    max-width: 120rem;
+    margin: auto;
+}

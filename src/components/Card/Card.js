@@ -18,7 +18,7 @@ export default {
     })
 
     const getImageUrl = async () => {
-      const imageUrl = `${imagesPath}/${props.code}.png`
+      const imageUrl = `${imagesPath}/${props.code}.jpg`
       const image = await imageExists(imageUrl)
       
       if (image) {

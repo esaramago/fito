@@ -1,12 +1,14 @@
 <template>
-  <header class="c-header">
-    <h1>Fito</h1>
-    <p>Informação de fitossanidade florestal</p>
-  </header>
+  <div class="wrapper">
+    <header class="c-header">
+      <h1>Fito</h1>
+      <p>Informação de fitossanidade florestal</p>
+    </header>
 
-  <main>
-    <RouterView />
-  </main>
+    <main>
+      <RouterView />
+    </main>
+  </div>
 </template>
 
 <style src="./styles/main.css"></style>

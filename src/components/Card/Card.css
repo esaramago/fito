@@ -1,6 +1,6 @@
 ﻿.card {
     display: grid;
-    grid-template-columns: minmax(10rem, 20rem) minmax(20rem, 30rem) minmax(40rem, 1fr);
+    grid-template-columns: minmax(10rem, 20rem) minmax(15rem, 30rem) minmax(45rem, 1fr);
     grid-template-areas: "img tit tab";
     overflow: hidden;
     background-color: #FFF;
