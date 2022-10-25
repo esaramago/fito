@@ -6,35 +6,38 @@
     display: inline-block;
     line-height: 1;
     text-transform: none;
+    text-decoration: none;
     letter-spacing: normal;
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
     color: #333;
 }
-.icon--clickable {
+.icon--clickable:not([disabled]) {
     position: relative;
     padding: .4rem;
     margin: -0.4rem;
-    text-decoration: none;
     color: #333;
     cursor: pointer;
     transition: color .3s;
 }
-
-.icon--clickable > span {
+.icon--clickable[disabled] {
+    opacity: .2;
+    pointer-events: none;
+}
+.icon--clickable:not([disabled]) > span {
     position: relative;
     z-index: 1;
 }
 
-.icon--clickable:active {
+.icon--clickable:not([disabled]):active {
     color: #EEE;
 }
-.icon--clickable:hover {
+.icon--clickable:not([disabled]):hover {
     color: var(--color-light);
 }
 
-.icon--clickable::before {
+.icon--clickable:not([disabled])::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -47,14 +50,14 @@
     opacity: 0;
     transition: opacity .3s, width .3s, height .3s, left .3s, top .3s;
 }
-.icon--clickable:visited::before,
-.icon--clickable:hover::before {
+.icon--clickable:not([disabled]):visited::before,
+.icon--clickable:not([disabled]):hover::before {
     top: 0%;
     left: 0%;
     width: 3.2rem;
     height: 3.2rem;
     opacity: 1;
 }
-.icon--clickable:active::before {
+.icon--clickable:not([disabled]):active::before {
     background-color: var(--color-dark);
 }

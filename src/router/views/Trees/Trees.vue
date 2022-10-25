@@ -1,7 +1,27 @@
 <template>
   <Stack>
+
+    <Stack gap="sm">
+
+      <Input
+        label="Pesquisar"
+        id="search"
+        placeholder="Pesquise por ávores ou códigos"
+        @input="onSearch"
+      ></Input>
+      
+      <p>
+        <template v-if="filteredTrees.length > 0">
+          <strong>{{filteredTrees.length}}</strong>
+          <template v-if="filteredTrees.length === 1"> árvore</template> 
+          <template v-else> árvores</template> 
+        </template>
+        <template v-else>Nenhuma árvore encontrada</template>
+      </p>
+    </Stack>
+
     <Card
-      v-for="tree in trees" :key="tree.code"
+      v-for="tree in filteredTrees" :key="tree.code"
       :title="tree.nomesistematico"
       :sub-title="tree.nomecomum"
       :code="tree.code"
@@ -38,6 +58,7 @@
                 :href="`https://fogos.icnf.pt/SGPP/0_doBD.asp?processo=7&idRNMB=${location.cartamilitar}`"
                 target="_blank"
                 title="Ficha do catálogo nacional de materiais base"
+                disabled
               ></Icon>
             </td>
           </tr>
