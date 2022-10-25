@@ -3,13 +3,22 @@
 
     <Stack gap="sm">
 
-      <Input
-        label="Pesquisar"
-        id="search"
-        placeholder="Pesquise por ávores ou códigos"
-        @input="onSearch"
-      ></Input>
-      
+      <Grid>
+        <Input
+          label="Pesquisar"
+          id="search"
+          placeholder="Pesquise por ávores ou códigos"
+          @input="onSearch"
+        ></Input>
+
+        <Select
+          label="Localidade"
+          id="location"
+          :source="[]"
+          @change="onSearch"
+        ></Select>
+      </Grid>
+        
       <p>
         <template v-if="filteredTrees.length > 0">
           <strong>{{filteredTrees.length}}</strong>

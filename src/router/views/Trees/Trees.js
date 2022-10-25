@@ -6,7 +6,6 @@ import replaceSpecialCharacters from '@/helpers/replaceSpecialCharacters'
 
 import loadXml from '@/helpers/loadXml'
 
-
 export default {
   setup() {
     

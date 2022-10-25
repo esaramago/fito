@@ -1,0 +1,14 @@
+﻿.grid {
+    display: flex;
+    gap: var(--gap);
+}
+@media (max-width: 900px) {
+    .grid > * {
+        flex: 1;
+    }
+}
+@media (max-width: 600px) {
+    .grid {
+        flex-direction: column;
+    }
+}

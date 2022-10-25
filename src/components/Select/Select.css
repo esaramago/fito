@@ -1,4 +1,4 @@
-﻿.input {
+﻿.select {
     width: var(--form-element-width);
     box-sizing: border-box;
     padding: 0 1.8rem;
@@ -7,7 +7,7 @@
     border: 2px solid var(--color);
     font-size: 1.6rem;
 }
-.input::placeholder {
+.select::placeholder {
     color: #CCC;
 }
 .label {
