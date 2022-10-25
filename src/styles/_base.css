@@ -1,6 +1,6 @@
 ﻿body {
-    margin: var(--half-gap);
-    background-color: #f5f5f5;
+    margin: var(--gap);
+    background-color: var(--color-light);
     font-family: 'Varela', serif;
     font-size: 1.6rem;
 }

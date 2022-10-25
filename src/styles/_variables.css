@@ -1,4 +1,14 @@
 ﻿:root {
     --gap: 3.2rem;
-    --half-gap: calc(var(--gap) / 2)
+    --half-gap: calc(var(--gap) / 2);
+
+    --color-light: #e6ebe6;
+    --color: #99bb99;
+    --color-dark: #5c975c;
+
+}
+@media (max-width: 900px) {
+    :root {
+        --gap: 1.6rem;
+    }
 }

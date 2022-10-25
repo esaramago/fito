@@ -7,7 +7,6 @@ import loadXml from '@/helpers/loadXml'
 
 
 export default {
-  name: 'Threes',
   setup() {
     
     const fileData = loadXml('src/data/data.xml').rnmblistainternet.row
@@ -26,11 +25,26 @@ export default {
     const trees = ref(_.chain(data)
       .groupBy('nomesistematico')
       .map((value, key) => {
+
+        const locations = _.sortBy(value, 'concelho')
+        const filteredLocations = []
+        locations.forEach(location => {
+          const repeatedLocation = filteredLocations.find(x => x.lat === location.lat && x.lon === location.lon)
+          if (repeatedLocation) {
+            repeatedLocation.codes.push(location.codigo)
+          } else {
+            filteredLocations.push({
+              ...location,
+              codes: [location.codigo]
+            })
+          }
+        })
+
         return ({
           nomesistematico: key,
           nomecomum: value[0].nomecomum,
           code: stringToSlug(key),
-          locations: value,
+          locations: filteredLocations,
         })
       })
       .sortBy('nomesistematico')
@@ -51,10 +65,15 @@ export default {
         .sortBy('concelho')
         .value())
 
+    const viewCodes = codes => {
+      alert(codes)
+    }
+
     return {
       data,
       trees,
       locations,
+      viewCodes,
     }
   },
 }

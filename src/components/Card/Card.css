@@ -1,11 +1,15 @@
 ﻿.card {
     display: grid;
-    grid-template-columns: minmax(10rem, 20rem) minmax(20rem, 30rem) 1fr;
+    grid-template-columns: minmax(10rem, 20rem) minmax(20rem, 30rem) minmax(40rem, 1fr);
+    grid-template-areas: "img tit tab";
+    overflow: hidden;
     background-color: #FFF;
     border-radius: 2rem;
 }
+
 .card__img {
     overflow: hidden;
+    grid-area: img;
 }
 .card__img > img {
     height: 100%;
@@ -14,9 +18,39 @@
 }
 .card__table,
 .card__titles {
-    padding: var(--half-gap);
+    padding: var(--gap);
 }
 .card__titles,
 .card__img {
     max-height: 40rem;
+}
+.card__titles {
+    grid-area: tit;
+}
+.card__table {
+    grid-area: tab;
+    background-color: #f7f7f7;
+}
+
+h3 {
+    color: #888;
+    font-weight: 400;
+}
+
+
+@media (max-width: 900px) {
+    .card {
+        grid-template-columns: 20rem 1fr;
+        grid-template-areas: "img tab"
+                             "tit tab";
+    }
+}
+@media (max-width: 600px) {
+    .card {
+        grid-template-rows: 15rem 1fr 1fr;
+        display: block;
+    }
+    .card__img {
+        max-height: 20rem;
+    }
 }

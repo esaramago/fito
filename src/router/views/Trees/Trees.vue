@@ -6,12 +6,14 @@
       :sub-title="tree.nomecomum"
       :code="tree.code"
     >
-      <table>
+      <table class="c-table">
         <thead>
           <tr>
             <th>Concelho</th>
             <th>Freguesia</th>
-            <th></th>
+            <th>Códigos</th>
+            <th width="40"></th>
+            <th width="40"></th>
           </tr>
         </thead>
         <tbody>
@@ -19,7 +21,24 @@
             <td>{{location.concelho}}</td>
             <td>{{location.freguesia}}</td>
             <td>
-              <a :href="`https://fogos.icnf.pt/localizador/localizador2018.asp?latstr=${location.lat}&lonstr=${location.lon}&t=Centro`" target="_blank">Mapa</a>
+              <template v-if="location.codes.length === 1">{{location.codigo}}</template>
+              <button v-else type="button" @click="viewCodes(location.codes)">Códigos</button>
+            </td>
+            <td>
+              <Icon
+                icon="map"
+                :href="`https://fogos.icnf.pt/localizador/localizador2018.asp?latstr=${location.lat}&lonstr=${location.lon}&t=Centro`"
+                target="_blank"
+                title="Mapa"
+              ></Icon>
+            </td>
+            <td>
+              <Icon
+                icon="picture_as_pdf"
+                :href="`https://fogos.icnf.pt/SGPP/0_doBD.asp?processo=7&idRNMB=${location.cartamilitar}`"
+                target="_blank"
+                title="Ficha do catálogo nacional de materiais base"
+              ></Icon>
             </td>
           </tr>
         </tbody>

@@ -1,0 +1,59 @@
+﻿.icon {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2.4rem;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    color: #333;
+}
+a.icon {
+    position: relative;
+    padding: .4rem;
+    margin: -0.4rem;
+    text-decoration: none;
+    color: #333;
+    transition: color .3s;
+}
+
+a.icon > span {
+    position: relative;
+    z-index: 1;
+}
+
+a.icon:active {
+    color: #EEE;
+}
+a.icon:hover {
+    color: var(--color-light);
+}
+
+a.icon::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    background-color: var(--color);
+    width: 0rem;
+    height: 0rem;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity .3s, width .3s, height .3s, left .3s, top .3s;
+}
+a.icon:visited::before,
+a.icon:hover::before {
+    top: 0%;
+    left: 0%;
+    width: 3.2rem;
+    height: 3.2rem;
+    opacity: 1;
+}
+a.icon:active::before {
+    background-color: var(--color-dark);
+}

@@ -1,6 +1,7 @@
 <template>
-  <header>
+  <header class="c-header">
     <h1>Fito</h1>
+    <p>Informação de fitossanidade florestal</p>
   </header>
 
   <main>
@@ -8,5 +9,4 @@
   </main>
 </template>
 
-<script src="./App.js"></script>
 <style src="./styles/main.css"></style>
