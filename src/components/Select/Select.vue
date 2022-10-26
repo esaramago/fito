@@ -1,7 +1,12 @@
 ﻿<template>
     <div>
-        <label class="label" :for="id">{{label}}</label>
-        <select class="select" :name="id" :id="id">
+        <label :for="id">{{label}}</label>
+        <select
+            :name="id"
+            :id="id"
+            @change="onSelect"
+        >
+            <option value="">Selecione</option>
             <option
                 v-for="option in source"
                 :value="option.id"
@@ -9,5 +14,4 @@
         </select>
     </div>
 </template>
-<style src="./Select.css"></style>
 <script src="./Select.js"></script>

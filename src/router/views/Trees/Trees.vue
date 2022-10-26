@@ -8,21 +8,23 @@
           label="Pesquisar"
           id="search"
           placeholder="Pesquise por ávores ou códigos"
-          @input="onSearch"
+          v-model="searchText"
+          @input="filterTrees"
         ></Input>
 
         <Select
-          label="Localidade"
+          label="Concelho"
           id="location"
-          :source="[]"
-          @change="onSearch"
+          :source="municipalities"
+          v-model="selectedLocation"
+          @input="filterTrees"
         ></Select>
       </Grid>
         
       <p>
-        <template v-if="filteredTrees.length > 0">
-          <strong>{{filteredTrees.length}}</strong>
-          <template v-if="filteredTrees.length === 1"> árvore</template> 
+        <template v-if="treesSrc.length > 0">
+          <strong>{{treesSrc.length}}</strong>
+          <template v-if="treesSrc.length === 1"> árvore</template> 
           <template v-else> árvores</template> 
         </template>
         <template v-else>Nenhuma árvore encontrada</template>
@@ -30,7 +32,7 @@
     </Stack>
 
     <Card
-      v-for="tree in filteredTrees" :key="tree.code"
+      v-for="tree in treesSrc" :key="tree.code"
       :title="tree.nomesistematico"
       :sub-title="tree.nomecomum"
       :code="tree.code"

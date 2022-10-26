@@ -1,6 +1,5 @@
-﻿import { ref, watch } from 'vue'
-
-export default {
+﻿export default {
+  emits: ['update:modelValue'],
   props: {
     value: String,
     id: {
@@ -15,23 +14,15 @@ export default {
   },
   setup(props, { emit }) {
 
-    const text = ref(props.value)
-    
-    watch(props => {
-      text.value = props.value
-    })
-
     const onInput = (e) => {
-      text.value = e.currentTarget.value
-      e.value = e.currentTarget.value
-      emit('update:value', e)
+      emit('update:modelValue', e.currentTarget.value)
     }
 
     return {
       id: props.id,
       label: props.label,
       placeholder: props.placeholder,
-      text,
+      searchText: props.searchText,
       onInput,
     }
   },

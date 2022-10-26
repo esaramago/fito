@@ -5,9 +5,6 @@
     --color-light: #e6ebe6;
     --color: #99bb99;
     --color-dark: #5c975c;
-
-    --form-element-width: 40rem;
-    --form-element-height: 3.6rem;
 }
 @media (max-width: 900px) {
     :root {

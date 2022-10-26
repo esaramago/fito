@@ -1,6 +1,7 @@
-﻿import { ref, watch } from 'vue'
+﻿import { ref, watchEffect } from 'vue'
 
 export default {
+  emits: ['update:modelValue', 'update:change'],
   props: {
     value: String,
     id: {
@@ -20,14 +21,15 @@ export default {
 
     const selectedItem = ref(props.value)
     
-    watch(props => {
+    watchEffect(props => {
       selectedItem.value = props.value
     })
 
     const onSelect = (e) => {
       selectedItem.value = e.currentTarget.value
-      e.value = e.currentTarget.value
-      emit('update:value', e)
+      e.value = selectedItem.value
+      emit('update:modelValue', selectedItem.value)
+      //emit('update:change', e)
     }
 
     return {

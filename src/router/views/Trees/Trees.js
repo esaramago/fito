@@ -51,9 +51,9 @@ export default {
       .sortBy('nomesistematico')
       .value()
 
-    const filteredTrees = ref([...trees])
-    //#endregion Data
+    const treesSrc = ref([...trees])
 
+    const municipalities = ref(getMunicipalities(data))
     
     //#region Events
     const viewCodes = codes => {
@@ -62,39 +62,91 @@ export default {
     //#endregion Events
 
     //#region Filters
-    const onSearch = (e) => {
-      const text = e.value
-      filteredTrees.value = filterTrees(text)
+    const searchText = ref('')
+    const selectedLocation = ref('')
+    const filterTrees = () => {
+
+      setTimeout(() => {
+
+        let treesList = [...trees]
+        
+        if (searchText.value || selectedLocation.value) {
+          treesList = filterByMunicipality(treesList, selectedLocation.value)
+          treesList = filterByText(treesList, searchText.value)
+        } else {
+          treesList = [...trees]
+        }
+        
+        treesSrc.value = treesList
+      }, 1);
+
     }
-    const filterTrees = (text) => {
 
-      let treesList = []
-
-      if (text) {
-        trees.forEach(tree => {
-          const searchText = replaceSpecialCharacters(text).toLowerCase()
-          const treeName = replaceSpecialCharacters(tree.nomecomum).toLowerCase()
-          const scientificName = replaceSpecialCharacters(tree.nomesistematico).toLowerCase()
-          const codes = replaceSpecialCharacters(tree.locations.map(x => x.codes.map(y => y)).join(' ')).toLowerCase()
-          if (treeName.search(searchText) > -1 || scientificName.search(searchText) > -1 || codes.search(searchText) > -1) {
-            treesList.push(tree)
-          }
-        })
-      } else {
-        treesList = [...trees]
-      }
-
-      return treesList
-    }
     //#endregion Filters
 
     return {
       data,
-      filteredTrees,
-      locations,
+      treesSrc,
+      municipalities,
+      searchText,
+      selectedLocation,
       viewCodes,
 
-      onSearch,
+      filterTrees,
     }
   },
+}
+
+
+const getMunicipalities = data => {
+
+  const uniqueMunicipalities = []
+
+  data.forEach(mun => {
+    const isRepeated = uniqueMunicipalities.find(x => x.description === mun.concelho)
+    if (!isRepeated) {
+      uniqueMunicipalities.push({
+        description: mun.concelho,
+        id: stringToSlug(mun.concelho),
+      })
+    }
+  })
+  const orderedMunicipalities = _.sortBy(uniqueMunicipalities, 'description')
+
+  return orderedMunicipalities
+}
+
+const filterByMunicipality = (treesList, selectedLocation) => {
+
+  if (!selectedLocation) return treesList
+
+  const filteredTrees = []
+
+  treesList.forEach(tree => {
+    const municipalities = tree.locations.map(x => stringToSlug(x.concelho))
+    const sameLocation = municipalities.includes(selectedLocation)
+    if (sameLocation) {
+      filteredTrees.push(tree)
+    }
+  })
+  
+  return filteredTrees
+}
+const filterByText = (treesList, text = '') => {
+
+  if (!text) return treesList
+
+  const filteredTrees = []
+
+  treesList.forEach(tree => {
+    const searchText = replaceSpecialCharacters(text).toLowerCase()
+    const treeName = replaceSpecialCharacters(tree.nomecomum).toLowerCase()
+    const scientificName = replaceSpecialCharacters(tree.nomesistematico).toLowerCase()
+    const codes = replaceSpecialCharacters(tree.locations.map(x => x.codes.map(y => y)).join(' ')).toLowerCase()
+    if (treeName.search(searchText) > -1 || scientificName.search(searchText) > -1 || codes.search(searchText) > -1) {
+      filteredTrees.push(tree)
+    }
+  })
+
+  return filteredTrees
 }

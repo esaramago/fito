@@ -8,3 +8,22 @@
     max-width: 120rem;
     margin: auto;
 }
+
+input,
+select {
+    display: block;
+    width: 40rem;
+    height: 4rem;
+    box-sizing: border-box;
+    padding: 0 1.8rem;
+    border-radius: 2rem;
+    border: 2px solid var(--color);
+    font-size: 1.6rem;
+}
+input::placeholder {
+    color: #CCC;
+}
+label {
+    display: inline-block;
+    margin-bottom: .2rem;
+}
