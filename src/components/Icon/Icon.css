@@ -1,8 +1,11 @@
 ﻿.icon {
+    --size: 2.4rem;
     font-family: 'Material Symbols Outlined';
     font-weight: normal;
     font-style: normal;
-    font-size: 2.4rem;
+    width: var(--size);
+    height: var(--size);
+    font-size: var(--size);
     display: inline-block;
     line-height: 1;
     text-transform: none;
@@ -13,6 +16,7 @@
     direction: ltr;
     color: #333;
 }
+
 .icon--clickable:not([disabled]) {
     position: relative;
     padding: .4rem;
@@ -35,6 +39,7 @@
 }
 .icon--clickable:not([disabled]):hover {
     color: var(--color-light);
+    fill: var(--color-light);
 }
 
 .icon--clickable:not([disabled])::before {

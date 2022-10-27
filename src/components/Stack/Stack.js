@@ -5,7 +5,7 @@ export default {
     gap: {
       type: String,
       validator: value => {
-        return ['sm', 'md'].includes(value)
+        return ['xs', 'sm', 'md'].includes(value)
       }
     }
   },

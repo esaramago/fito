@@ -32,6 +32,11 @@ label {
     display: inline-block;
     margin-bottom: .2rem;
 }
+svg {
+    position: relative;
+    width: 100%;
+    fill: currentColor;
+}
 
 @media (max-width: 600px) {
     input,

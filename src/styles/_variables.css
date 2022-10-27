@@ -1,9 +1,10 @@
 ﻿:root {
     --gap: 3.2rem;
     --half-gap: calc(var(--gap) / 2);
+    --quarter-gap: calc(var(--gap) / 4);
 
     --color-light: #e6ebe6;
-    --color: #99bb99;
+    --color: #76b576;
     --color-dark: #5c975c;
 }
 @media (max-width: 900px) {

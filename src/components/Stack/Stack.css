@@ -4,3 +4,6 @@
 .stack--sm > * + * {
     margin-top: var(--half-gap);
 }
+.stack--xs > * + * {
+    margin-top: var(--quarter-gap);
+}

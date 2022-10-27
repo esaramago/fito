@@ -12,9 +12,13 @@ export default {
         const isButton = computed(() => {
           return !!context.attrs.onClick
         })
+        const isSvg = computed(() => {
+          return props.icon === 'inline-svg'
+        })
 
         return {
             isButton,
+            isSvg,
         }
     }
 }
