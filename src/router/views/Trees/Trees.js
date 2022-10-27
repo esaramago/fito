@@ -57,7 +57,7 @@ export default {
     
     //#region Events
     const viewCodes = codes => {
-      alert(codes)
+      alert(codes.join(', '))
     }
     //#endregion Events
 

@@ -1,5 +1,7 @@
 ﻿.c-header {
-    margin-bottom: var(--gap);
+    padding: var(--gap);
+    background-color: var(--color);
+    color: #FFF;
 }
 .c-header h1 {
     font-size: 5rem;

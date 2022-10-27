@@ -1,4 +1,5 @@
 <template>
+
   <Stack>
 
     <Stack gap="sm">
@@ -66,10 +67,10 @@
             <td>
               <Icon
                 icon="picture_as_pdf"
-                :href="`https://fogos.icnf.pt/SGPP/0_doBD.asp?processo=7&idRNMB=${location.cartamilitar}`"
+                :href="`https://fogos.icnf.pt/SGPP/0_doBD.asp?processo=7&idRNMB=${location.rnmb}`"
                 target="_blank"
                 title="Ficha do catálogo nacional de materiais base"
-                disabled
+                :disabled="location.rnmb ? null : 'disabled'"
               ></Icon>
             </td>
           </tr>

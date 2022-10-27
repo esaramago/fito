@@ -1,5 +1,4 @@
-﻿import imageExists from '@/helpers/imageExists'
-import { reactive, ref, onMounted } from 'vue'
+﻿import { computed } from 'vue'
 
 export default {
   name: 'Card',
@@ -11,22 +10,10 @@ export default {
   setup(props) {
 
     const imagesPath = '/images/trees'
-    const imageUrl = ref('')
 
-    onMounted(async () => {
-      imageUrl.value = await getImageUrl()
+    const imageUrl = computed(() => {
+      return `${imagesPath}/${props.code}.jpg`
     })
-
-    const getImageUrl = async () => {
-      const imageUrl = `${imagesPath}/${props.code}.jpg`
-      const image = await imageExists(imageUrl)
-      
-      if (image) {
-        return imageUrl
-      } else {
-        return `${imagesPath}/placeholder.png`
-      }
-    }
 
     return {
       title: props.title,

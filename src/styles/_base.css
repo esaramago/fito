@@ -1,12 +1,17 @@
 ﻿body {
-    margin: var(--gap);
+    margin: 0;
     background-color: var(--color-light);
     font-family: 'Varela', serif;
     font-size: 1.6rem;
 }
 .wrapper {
     max-width: 120rem;
+    padding: var(--gap);
     margin: auto;
+}
+
+.page-subtitle {
+    font-size: 1.8rem;
 }
 
 input,
@@ -26,4 +31,11 @@ input::placeholder {
 label {
     display: inline-block;
     margin-bottom: .2rem;
+}
+
+@media (max-width: 600px) {
+    input,
+    select {
+        width: 100%;
+    }
 }
